@@ -15,17 +15,15 @@ class MyApp extends StatelessWidget {
 final ThemeController themeController = Get.put(ThemeController());
   @override
   Widget build(BuildContext context) {
-    return Obx(() {
-      return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: themeController.isDarkMode.value ? ThemeData.dark() : ThemeData.light(),
-        home: CounterPage(),
-        getPages: [
-          GetPage(name: '/count', page: () => CounterPage(),),
-          GetPage(name: '/theme', page: () => ThemePage(),)
-        ],
-      );
-    },);
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: themeController.isDarkMode.value ? ThemeData.dark() : ThemeData.light(),
+      home: CounterPage(),
+      getPages: [
+        GetPage(name: '/count', page: () => CounterPage(),),
+        GetPage(name: '/theme', page: () => ThemePage(),)
+      ],
+    );
   }
 }
 
